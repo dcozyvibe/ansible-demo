@@ -1,0 +1,14 @@
+---
+- name: create SUDO user dataguise
+  hosts: CENTOS
+  vars:
+    password: dguser@123
+  become: true
+  remote_user: root
+  tasks:
+    - name: create user
+      user:
+        name: "dataguise"
+        password: "{{ password | password_hash('sha512') }}"
+        groups: "wheel"
+        state: present
