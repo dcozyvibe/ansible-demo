@@ -1,10 +1,9 @@
 ---
 - name: create SUDO user dataguise
   hosts: CENTOS
-  vars:
-    password: dguser@123
   become: true
-  remote_user: root
+  vars:
+    password: dguser@123 
   tasks:
     - name: create user
       user:
