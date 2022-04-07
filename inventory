@@ -1,2 +1,2 @@
 [CENTOS]
-client ansible_user=ansadmin
+client
