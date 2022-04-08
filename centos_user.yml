@@ -1,13 +1,8 @@
 ---
-- name: create SUDO user dataguise
+- name: install httpd
   hosts: CENTOS
-  become: true
-  vars:
-    password: dguser@123 
   tasks:
-    - name: create user
-      user:
-        name: "dataguise"
-        password: "{{ password | password_hash('sha512') }}"
-        groups: "wheel"
+    - name: Install httpd
+      yum:
+        name: httpd
         state: present
